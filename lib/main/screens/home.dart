@@ -122,28 +122,31 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             Expanded(
               child: isListEmpty()
-                  ? ClipRRect(
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(28),
-                      ),
-                      child: Container(
-                        color: softColor,
-                        child: Center(
-                          child: ClipRRect(
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                            child: Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 15,
-                                vertical: 10,
+                  ? Padding(
+                      padding: const EdgeInsets.only(bottom: 15),
+                      child: ClipRRect(
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(28),
+                        ),
+                        child: Container(
+                          color: softColor,
+                          child: Center(
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(10),
                               ),
-                              color: Colors.white,
-                              child: Text(
-                                'Note Box Empty',
-                                style: TextStyle(
-                                  color: hardColor,
-                                  fontWeight: FontWeight.bold,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 15,
+                                  vertical: 10,
+                                ),
+                                color: Colors.white,
+                                child: Text(
+                                  'Note Box Empty',
+                                  style: TextStyle(
+                                    color: hardColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),

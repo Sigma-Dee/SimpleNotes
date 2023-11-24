@@ -67,7 +67,10 @@ class _BookmarkedScreenState extends State<BookmarkedScreen> {
               child: IconButton(
                 icon: const Icon(Icons.bookmark_border_outlined),
                 color: AppColors.primaryColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  savedNotes.clear();
+                },
               ),
             ),
           ),
