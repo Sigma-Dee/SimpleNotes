@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../main.dart';
 import '../constants/colors.dart';
@@ -103,13 +102,17 @@ class _NotePageState extends State<NotePage> {
                   Navigator.pop(context);
                 });
                 // toast message
-                Fluttertoast.showToast(
-                  msg: isEditMode ? 'Note Changes Saved' : 'Note Saved',
-                  toastLength: Toast.LENGTH_SHORT,
-                  gravity: ToastGravity.BOTTOM,
-                  backgroundColor: Colors.black.withOpacity(0.5),
-                  textColor: Colors.white,
-                  fontSize: 16.0,
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      isEditMode ? 'Note Changes Saved' : 'Note Saved',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                      ),
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.5),
+                  ),
                 );
               },
               borderRadius: BorderRadius.circular(30),

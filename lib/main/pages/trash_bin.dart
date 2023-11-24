@@ -72,7 +72,10 @@ class _TrashBinState extends State<TrashBin> {
               child: IconButton(
                 icon: const Icon(Icons.delete_outline_rounded),
                 color: AppColors.primaryColor,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                  deletedNotes.clear();
+                },
               ),
             ),
           ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:simple_notes/main.dart';
 import 'package:simple_notes/main/pages/trash_bin.dart';
 
@@ -290,17 +289,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                         }
                                         noteData.isSaved = !noteData.isSaved;
                                       });
-                                      // toast message
-                                      Fluttertoast.showToast(
-                                        msg: noteData.isSaved
-                                            ? 'Added to favorites'
-                                            : 'Removed from favorites',
-                                        toastLength: Toast.LENGTH_SHORT,
-                                        gravity: ToastGravity.BOTTOM,
-                                        backgroundColor:
-                                            Colors.black.withOpacity(0.5),
-                                        textColor: Colors.white,
-                                        fontSize: 16.0,
+
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                            noteData.isSaved
+                                                ? 'Added to favorites'
+                                                : 'Removed from favorites',
+                                            style: TextStyle(
+                                                fontSize: 16,
+                                                color: Colors.white),
+                                          ),
+                                          backgroundColor:
+                                              Colors.black.withOpacity(0.5),
+                                        ),
                                       );
                                     },
                                   ),
@@ -330,11 +333,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Toast Message
-          Fluttertoast.showToast(
-            msg: 'Add new note',
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Add new note'),
+            ),
           );
           // Function
           Navigator.of(context).push(
